@@ -11,6 +11,15 @@ export class TaskListComponent implements OnInit {
   tasks: Task[] = []
 
   ngOnInit(): void {
-    
+    this.tasks = [
+      {
+        content: "test1",
+        isCompleted: false,
+      },
+      {
+        content: "test2",
+        isCompleted: false,
+      }
+    ]
   }
 }
