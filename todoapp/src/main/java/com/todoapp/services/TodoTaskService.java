@@ -12,11 +12,6 @@ public class TodoTaskService {
     @Autowired
     private TodoTaskRepository repository;
 
-    public void createAndAddTask(){
-        var task = new TodoTask();
-        repository.save(task);
-    }
-
     public List<TodoTask> getAllTasks(){
         return repository.findAll();
     }

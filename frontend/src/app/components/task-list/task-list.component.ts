@@ -1,6 +1,7 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { Task } from 'src/app/models/task';
 import { HttpClient } from '@angular/common/http';
+import { TasksProviderService } from 'src/app/services/tasks-provider.service';
 
 @Component({
   selector: 'app-task-list',
@@ -14,21 +15,14 @@ export class TaskListComponent implements OnInit {
   tasks: Task[] = []
   greeting: string = ""
   
-  constructor(private http: HttpClient) {}
+  constructor(private taskService: TasksProviderService) {}
 
 
   ngOnInit(): void {
-    this.http.get('/hello', {responseType: 'text'}).subscribe(res => this.greeting = res);
+    
+    this.taskService
+      .getAllTasks()
+      .subscribe((tasks: Task[]) => this.tasks = tasks);
 
-    this.tasks = [
-      {
-        content: "test1",
-        isCompleted: false,
-      },
-      {
-        content: "test2",
-        isCompleted: false,
-      }
-    ]
   }
 }
