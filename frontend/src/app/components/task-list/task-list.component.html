@@ -3,8 +3,6 @@
         {{greeting}}
     </h1>
     <div *ngFor="let task of tasks;">
-        <div class="content">
-            {{task.content}}
-        </div>
+        <app-task [task]="task"></app-task>
     </div>
 </div>
