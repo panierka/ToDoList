@@ -8,19 +8,25 @@ import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskComponent } from './components/task/task.component';
 import { VaultComponent } from './components/vault/vault.component';
 import { DragDropModule } from '@angular/cdk/drag-drop'
+import { TextFieldModule } from "@angular/cdk/text-field";
+import { FormsModule } from "@angular/forms";
+import { UserTextComponent } from './components/user-text/user-text.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskListComponent,
     TaskComponent,
-    VaultComponent
+    VaultComponent,
+    UserTextComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    DragDropModule
+    DragDropModule,
+    TextFieldModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

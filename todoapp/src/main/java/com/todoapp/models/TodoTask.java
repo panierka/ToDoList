@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.ToString;
 
-import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="task")
@@ -21,4 +21,13 @@ public class TodoTask {
 
     @Column(name = "is_completed")
     private boolean isCompleted;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "deadline")
+    private LocalDateTime deadline;
+
+    @Column(name = "order", nullable = false)
+    private Integer order = 0;
 }

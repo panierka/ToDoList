@@ -9,4 +9,5 @@ import { Task } from 'src/app/models/task';
 export class TaskComponent{
   
   @Input() task!: Task;
+
 }

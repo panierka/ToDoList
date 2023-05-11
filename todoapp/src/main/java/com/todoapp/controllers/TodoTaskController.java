@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,7 +21,11 @@ public class TodoTaskController {
 
     @GetMapping(value = "/task/get-all")
     public List<TodoTask> getAllTasks(){
-        var tasks = service.getAllTasks();
+        var tasks = service
+                .getAllTasks()
+                .stream()
+                .sorted(Comparator.comparing(TodoTask::getOrder))
+                .toList();
         log.info("getting {} tasks", tasks.size());
         return tasks;
     }

@@ -5,4 +5,5 @@ export class Task
     isCompleted: boolean = false;
     description: string = "abc";
     deadline: Date | undefined;
+    order: number = 0;
 }

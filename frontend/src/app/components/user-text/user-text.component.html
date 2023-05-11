@@ -1,0 +1,8 @@
+<div class="user-text">
+    <textarea class="user-text-area"
+    [(ngModel)]="model"
+    (mousedown)="$event.stopPropagation()"
+    (keydown.enter)="onAttemptedNewline($event)"
+    cdkTextareaAutosize>
+</textarea>
+</div>
