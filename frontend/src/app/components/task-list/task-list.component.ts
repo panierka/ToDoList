@@ -2,6 +2,7 @@ import { Component, Injectable, OnInit } from '@angular/core';
 import { Task } from 'src/app/models/task';
 import { HttpClient } from '@angular/common/http';
 import { TasksProviderService } from 'src/app/services/tasks-provider.service';
+import { CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-task-list',
@@ -23,6 +24,9 @@ export class TaskListComponent implements OnInit {
     this.taskService
       .getAllTasks()
       .subscribe((tasks: Task[]) => this.tasks = tasks);
-
+  }
+  
+  drop(event: CdkDragDrop<Task[]>) {
+    moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
   }
 }
