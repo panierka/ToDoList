@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskComponent } from './components/task/task.component';
+import { VaultComponent } from './components/vault/vault.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskListComponent,
-    TaskComponent
+    TaskComponent,
+    VaultComponent
   ],
   imports: [
     BrowserModule,
