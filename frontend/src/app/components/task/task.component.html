@@ -2,10 +2,10 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">
-                <app-user-text [model]="task.content"/>
+                <app-user-text [model]="task.content" (unfocus)="submitStateUpdate($event)"/>
             </h5>
             <p class="card-text">
-                <app-user-text [model]="task.description"/>
+                <app-user-text [model]="task.description" (unfocus)="submitStateUpdate($event)"/>
             </p>
         </div>
         <div class="card-footer">

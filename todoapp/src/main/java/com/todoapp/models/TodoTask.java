@@ -2,6 +2,7 @@ package com.todoapp.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 @Table(name="task")
 @ToString
 @Getter
+@Setter
 public class TodoTask {
     @Id
     @Column(name = "id")
@@ -28,6 +30,6 @@ public class TodoTask {
     @Column(name = "deadline")
     private LocalDateTime deadline;
 
-    @Column(name = "order", nullable = false)
+    @Column(name = "`order`", nullable = false)
     private Integer order = 0;
 }

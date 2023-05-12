@@ -3,6 +3,7 @@
     [(ngModel)]="model"
     (mousedown)="$event.stopPropagation()"
     (keydown.enter)="onAttemptedNewline($event)"
-    cdkTextareaAutosize>
+    cdkTextareaAutosize
+    (blur)="unfocus.emit($event)">
 </textarea>
 </div>

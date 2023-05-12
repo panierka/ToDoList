@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user-text[model]',
@@ -7,6 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class UserTextComponent {
   @Input() model!: string;
+
+  @Output()
+  unfocus: EventEmitter<Event> = new EventEmitter<Event>();
 
   onAttemptedNewline(event: Event): void {
     event.preventDefault();
