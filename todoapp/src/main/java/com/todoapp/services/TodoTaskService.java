@@ -28,4 +28,8 @@ public class TodoTaskService {
     public TodoTask createTask(TodoTask task){
         return repository.save(task);
     }
+
+    public void deleteTask(TodoTask task){
+        repository.delete(task);
+    }
 }

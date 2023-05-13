@@ -21,14 +21,14 @@ public class TodoTaskController {
     private TodoTaskService service;
 
     @GetMapping(value = "/task/get-all")
-    public List<TodoTask> getAllTasks(){
+    public ResponseEntity<List<TodoTask>> getAllTasks(){
         var tasks = service
                 .getAllTasks()
                 .stream()
                 .sorted(Comparator.comparing(TodoTask::getOrder))
                 .toList();
         log.info("getting {} tasks", tasks.size());
-        return tasks;
+        return ResponseEntity.ok(tasks);
     }
 
     @PutMapping(value = "/task/update/{id}")
@@ -78,5 +78,16 @@ public class TodoTaskController {
     public ResponseEntity<TodoTask> createTask(@RequestBody TodoTask task){
         var createdTask = service.createTask(task);
         return ResponseEntity.ok(createdTask);
+    }
+
+    @DeleteMapping("task/delete/{id}")
+    public ResponseEntity<String> deleteTask(@PathVariable Long id){
+        var foundTask = service.findTaskById(id);
+        if (foundTask.isPresent()){
+            service.deleteTask(foundTask.get());
+            return ResponseEntity.ok("task deleted");
+        }
+
+        return ResponseEntity.notFound().build();
     }
 }
