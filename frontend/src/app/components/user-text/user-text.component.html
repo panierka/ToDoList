@@ -4,6 +4,6 @@
     (mousedown)="$event.stopPropagation()"
     (keydown.enter)="onAttemptedNewline($event)"
     cdkTextareaAutosize
-    (blur)="unfocus.emit($event)">
+    (blur)="onValueChanged.emit(model)">
 </textarea>
 </div>

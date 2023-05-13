@@ -9,7 +9,7 @@ export class UserTextComponent {
   @Input() model!: string;
 
   @Output()
-  unfocus: EventEmitter<Event> = new EventEmitter<Event>();
+  onValueChanged: EventEmitter<string> = new EventEmitter<string>();
 
   onAttemptedNewline(event: Event): void {
     event.preventDefault();

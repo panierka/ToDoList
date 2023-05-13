@@ -13,8 +13,8 @@ export class TaskComponent{
 
   constructor(private taskService: TasksProviderService) {}
   
-  submitStateUpdate(_: Event): void{
+  submitStateUpdate(): void{
     console.log('state change submitted to server');
-    this.taskService.updateTask(this.task);
+    this.taskService.updateTask(this.task).subscribe(res => {});
   } 
 }
