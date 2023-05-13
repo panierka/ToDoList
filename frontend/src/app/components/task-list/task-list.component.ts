@@ -27,5 +27,7 @@ export class TaskListComponent implements OnInit {
   
   drop(event: CdkDragDrop<Task[]>) {
     moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
+    this.tasks.forEach((task, index) => task.order = index + 1);
+    this.taskService.reorder(this.tasks).subscribe(res => {});
   }
 }

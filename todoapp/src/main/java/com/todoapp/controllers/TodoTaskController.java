@@ -3,6 +3,7 @@ package com.todoapp.controllers;
 import com.todoapp.models.TodoTask;
 import com.todoapp.services.TodoTaskService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @RestController
 @Slf4j
@@ -51,5 +53,24 @@ public class TodoTaskController {
                     return service.updateTask(newTask);
                 });
         return ResponseEntity.ok(task);
+    }
+
+    @PutMapping("task/reorder")
+    public void updateOrder(@RequestBody List<Long> orderedIndices){
+        log.info("reordering");
+        IntStream
+                .range(0, orderedIndices.size())
+                .forEach(orderedPosition -> {
+                    var id = orderedIndices.get(orderedPosition);
+                    var optionalTask = service.findTaskById(id);
+
+                    if (optionalTask.isEmpty()){
+                        return;
+                    }
+
+                    var task = optionalTask.get();
+                    task.setOrder(orderedPosition + 1);
+                    service.updateTask(task);
+                });
     }
 }

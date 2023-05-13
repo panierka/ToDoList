@@ -22,4 +22,12 @@ export class TasksProviderService {
       { headers: headers }
     );
   }
+
+  reorder(tasks: Task[]): Observable<any> {
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.put(`${this.baseUrl}/reorder`, 
+      JSON.stringify(tasks.map(x => x.id)), 
+      { headers: headers }
+    );
+  }
 }
