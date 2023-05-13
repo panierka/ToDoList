@@ -24,10 +24,21 @@ export class TaskListComponent implements OnInit {
       .getAllTasks()
       .subscribe((tasks: Task[]) => this.tasks = tasks);
   }
+
+  reorderTasks(): void{
+    this.tasks.forEach((task, index) => task.order = index + 1);
+    this.taskService.reorder(this.tasks).subscribe(res => {});
+  }
   
   drop(event: CdkDragDrop<Task[]>) {
     moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
-    this.tasks.forEach((task, index) => task.order = index + 1);
-    this.taskService.reorder(this.tasks).subscribe(res => {});
+    this.reorderTasks();
+  }
+
+  createTask(): void{
+    this.taskService.createTask(new Task()).subscribe((task: Task) => {
+      this.tasks.unshift(task);
+      this.reorderTasks();
+    });
   }
 }

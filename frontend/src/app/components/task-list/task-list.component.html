@@ -1,5 +1,5 @@
 <div class="task-list">
-    <button class="new-task-btn">
+    <button class="new-task-btn" (click)="createTask()">
         + Add New Task
     </button>
     <div cdkDropList class="containters"(cdkDropListDropped)="drop($event)">

@@ -73,4 +73,10 @@ public class TodoTaskController {
                     service.updateTask(task);
                 });
     }
+
+    @PostMapping("task/create")
+    public ResponseEntity<TodoTask> createTask(@RequestBody TodoTask task){
+        var createdTask = service.createTask(task);
+        return ResponseEntity.ok(createdTask);
+    }
 }

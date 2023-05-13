@@ -24,4 +24,8 @@ public class TodoTaskService {
     public Optional<TodoTask> findTaskById(Long id){
         return repository.findById(id);
     }
+
+    public TodoTask createTask(TodoTask task){
+        return repository.save(task);
+    }
 }
