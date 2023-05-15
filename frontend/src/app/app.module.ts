@@ -11,6 +11,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
 import { TextFieldModule } from "@angular/cdk/text-field";
 import { FormsModule } from "@angular/forms";
 import { UserTextComponent } from './components/user-text/user-text.component';
+import { FinishedTasksComponent } from './components/finished-tasks/finished-tasks.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UserTextComponent } from './components/user-text/user-text.component';
     TaskListComponent,
     TaskComponent,
     VaultComponent,
-    UserTextComponent
+    UserTextComponent,
+    FinishedTasksComponent
   ],
   imports: [
     BrowserModule,

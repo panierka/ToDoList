@@ -30,6 +30,6 @@ public class TodoTask {
     @Column(name = "deadline")
     private LocalDateTime deadline;
 
-    @Column(name = "`order`", nullable = false)
+    @Column(name = "\"order\"", nullable = false)
     private Integer order = 0;
 }

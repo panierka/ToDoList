@@ -38,4 +38,8 @@ export class TasksProviderService {
       { headers: headers }
     );
   }
+
+  deleteTask(id: number): Observable<any>{
+    return this.http.delete(`${this.baseUrl}/delete/${id}`);
+  }
 }

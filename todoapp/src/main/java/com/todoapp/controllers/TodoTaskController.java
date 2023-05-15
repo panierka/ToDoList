@@ -82,6 +82,7 @@ public class TodoTaskController {
 
     @DeleteMapping("task/delete/{id}")
     public ResponseEntity<String> deleteTask(@PathVariable Long id){
+        log.info("deleting task with id={}", id);
         var foundTask = service.findTaskById(id);
         if (foundTask.isPresent()){
             service.deleteTask(foundTask.get());

@@ -6,8 +6,14 @@
         <div class="left-dock">
         
         </div>
-        <div class="middle-dock">
-            <app-task-list></app-task-list>
+        <div class="drag-space" cdkDropListGroup>
+            <div class="middle-dock">
+                <app-task-list></app-task-list>
+            </div>
+            
+            <div class="right-dock">
+                <app-finished-tasks></app-finished-tasks>
+            </div>
         </div>
     </div>
 </div>
