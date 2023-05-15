@@ -18,7 +18,7 @@ public class TodoTask {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "content")
+    @Column(name = "\"content\"")
     private String content;
 
     @Column(name = "is_completed")
