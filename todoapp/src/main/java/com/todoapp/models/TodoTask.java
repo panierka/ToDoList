@@ -32,4 +32,9 @@ public class TodoTask {
 
     @Column(name = "\"order\"", nullable = false)
     private Integer order = 0;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "task_set_id")
+    private TaskSet taskSet;
+
 }
