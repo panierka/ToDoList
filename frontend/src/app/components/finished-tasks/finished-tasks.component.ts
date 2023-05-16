@@ -12,15 +12,17 @@ export class FinishedTasksComponent {
 
   constructor(private taskService: TasksProviderService) {}
 
-  finished: Task[] = [new Task()]
+  finished: Task[] = [];
 
   drop(event: CdkDragDrop<Task[]>) {
+    console.log(event.previousContainer.data);
     transferArrayItem(
       event.previousContainer.data,
       event.container.data,
       event.previousIndex,
       event.currentIndex,
     );
+    console.log("abc!!");
     var task = this.finished.pop()!;
     var id = task.id!;
     this.taskService.deleteTask(id).subscribe(_ => {});

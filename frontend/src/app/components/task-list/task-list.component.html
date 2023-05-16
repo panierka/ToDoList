@@ -2,7 +2,7 @@
     <button class="new-task-btn" (click)="createTask()">
         + Add New Task
     </button>
-    <div cdkDropList class="containters"(cdkDropListDropped)="drop($event)">
+    <div cdkDropList [cdkDropListData]="tasks" class="containters"(cdkDropListDropped)="drop($event)">
         <div class="task-container" *ngFor="let task of tasks;" cdkDrag>
             <app-task [task]="task"></app-task>
         </div>

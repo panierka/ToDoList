@@ -40,6 +40,7 @@ export class TasksProviderService {
   }
 
   deleteTask(id: number): Observable<any>{
-    return this.http.delete(`${this.baseUrl}/delete/${id}`);
+
+    return this.http.delete(`${this.baseUrl}/delete/${id}`, {responseType: 'text'});
   }
 }
